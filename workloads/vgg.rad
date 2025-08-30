@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/vgg.py --batch_size 32
+vgg_32.model
+/raid/datasets/imagenet
+32
+exclusive
+1
+8222
+21525.8262
+3121.344643
+16000

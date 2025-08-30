@@ -1,0 +1,8 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/gpt2_xl_on_wiki.py
+gpt2_xl.model
+wiki
+2
+exclusive
+1

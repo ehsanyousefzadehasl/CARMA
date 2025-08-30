@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/efficientNet_cifar100.py --batch_size 128 --epochs 50
+efficientNet_cifar100.model
+cifar100
+128
+exclusive
+1
+2054
+2948.3796
+233.3504944
+8000

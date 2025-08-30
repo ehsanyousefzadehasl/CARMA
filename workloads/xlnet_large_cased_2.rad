@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/xlnet_large_cased.py
+xlnet_large_cased.model
+WIKI dataset
+8
+exclusive
+2
+14546
+5325.0273
+40000
+16000

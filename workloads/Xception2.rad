@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/Xception.py --batch_size 64
+Xception_64.model
+/raid/datasets/imagenet
+64
+exclusive
+1
+11520
+16176.2725
+8324.916908
+16000

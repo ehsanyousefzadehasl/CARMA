@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/efficientNet.py --batch_size 128
+efficientNet_128.model
+/raid/datasets/imagenet
+128
+exclusive
+1
+13832
+12999.0977
+10904.91068
+16000

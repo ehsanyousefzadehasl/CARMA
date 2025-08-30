@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/resnet18_cifar100.py --batch_size 32 --epochs 50
+resnet18_cifar100.model
+cifar100
+32
+exclusive
+1
+1960
+2231.6129
+53.99452972
+8000

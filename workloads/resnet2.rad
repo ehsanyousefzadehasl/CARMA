@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/resnet50.py --batch_size 64
+resnet50_64.model
+/raid/datasets/imagenet
+64
+exclusive
+1
+8536
+14910.3711
+5337.0131
+16000

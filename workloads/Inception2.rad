@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/Inception.py --batch_size 64
+Inception_64.model
+/raid/datasets/imagenet
+64
+exclusive
+1
+10560
+11089.8086
+3158.379311
+16000

@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/mobilenet.py --batch_size 128
+mobilenet_128.model
+/raid/datasets/imagenet
+128
+exclusive
+1
+12578
+12028.1592
+9686.067543
+16000

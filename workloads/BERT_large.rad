@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/BERT_large_on_wiki.py
+BERT_large.model
+wiki
+8
+exclusive
+1
+13568
+13349.4346
+40000
+24000

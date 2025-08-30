@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/mobilenet_cifar100.py --batch_size 32 --epochs 20
+mobilenet_cifar100.model
+cifar100
+32
+exclusive
+1
+1784
+1348.8069
+15.16733551
+8000

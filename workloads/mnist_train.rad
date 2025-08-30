@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/mnist_train.py
+mnist_cnn_64.model
+MNIST dataset
+32
+exclusive
+1
+1776
+1114.0823
+37.17192078
+8000

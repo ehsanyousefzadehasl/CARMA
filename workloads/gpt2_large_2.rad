@@ -1,0 +1,12 @@
+# assumption is that model.txt file is in this directory
+conda activate tf
+python /home/ehyo/rad-scheduler/workloads/gpt2_large_on_wiki.py
+gpt2_large.model
+wiki
+8
+exclusive
+2
+27902
+40000
+40000
+40000
