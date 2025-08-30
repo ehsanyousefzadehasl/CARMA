@@ -9,20 +9,8 @@ import logging
 import monitor
 import rad_parser
 from task_queue import Task, Tasks
-
 from itertools import cycle, islice
 
-import process_detector
-
-# from xgboost import XGBRegressor
-import pickle
-
-# todos
-# TODO: making parser function that gets the job content and gives out the command, etc. for the scheduler
-# TODO: making executor function that gets the GPU and the command
-
-# cnn_loaded_model = pickle.load(open("extraTree_cnn_mem.pickle.dat", "rb"))
-# fc_loaded_model = pickle.load(open("extraTree_fc_mem.pickle.dat", "rb"))
 
 # logger for keeping track of submission, dispatch, and termination time
 logging.basicConfig(filename='std.log', filemode='w', format='%(asctime)s %(message)s', datefmt='%d-%b-%y %H:%M:%S')
@@ -38,15 +26,16 @@ main_queue = Tasks()
 recovery_queue = Tasks()
 
 
-# List of GPU IDs
+# =============================================
+# List of GPU IDs for saving time on evaluation
+# TODO: make this automatic [using module from monitor]
 GPU_IDs = [
     "GPU-00f900e0-bb6f-792a-1b8a-597214c7e1a1",
     "GPU-36631a8a-069f-d2e7-5dbc-954ff1c64d8a",
     "GPU-2542cdb4-b558-5541-6feb-c4b72b612395",
     "GPU-02bed562-1235-134d-6e37-99f97fd3c1e0"
 ]
-
-# Round-robin generator
+# round-robin generator
 round_robin_generator = cycle(GPU_IDs)
 
 def select_ids(n):
@@ -58,11 +47,12 @@ def select_ids(n):
         list: List of selected IDs.
     """
     return list(islice(round_robin_generator, n))
+# =============================================
 
 
 handled_crashes = []
 
-def recovery():
+def recovery(dirs = ['/home/ehyo/CARMA/src']):
     print("recovery process started ...")
     time.sleep(5)
     """
@@ -72,11 +62,14 @@ def recovery():
     # for the next phase of scheduling
 
     # TODO: making it more general to go through submitted jobs from different users directories
+
     list_of_files = []
-    for file in os.listdir("/home/ehyo/rad-scheduler"):
-        if file.startswith("err") and file.endswith(".log"):
-            file = os.path.join("/home/ehyo/rad-scheduler", file)
-            list_of_files.append(file)
+
+    for base in dirs:
+        for file in os.listdir(base):
+            if file.startswith("err") and file.endswith(".log"):
+                file = os.path.join(base, file)
+                list_of_files.append(file)
 
 
     crashes = 0
@@ -169,20 +162,22 @@ def server():
 
 # this is the module implementing different policies for 
 # assigning GPUs to tasks/ collocate tasks under different policies
-def scheduler(policy = "oracle-most-GMem-available"):
+def scheduler(policy = "round-robin"):
     # exclusive, round-robin
     # oracle-first-fit, oracle-most-GMem-available, oracle-best-fit, oracle-least_GPU_utiltized
     # most-GMem-available-RR, least_GPU_utilized-RR, 
     # estimate-most-GMem-available (estimators needs to be set for the experiment first)
 
     # it needs to be a never-ending loops checking task queue, and GPUs, and making decisions
-    estimator = "GPUMemNet"
+    estimator = "None"
     # horus
     # faketensor, GPUMemNet, oracle
 
     esIndex = 8
 
-    if estimator == "horus":
+    if estimator == "None":
+        print("No Estimator!")
+    elif estimator == "horus":
         print("horus :)")
         esIndex = 9
     elif estimator == "faketensor":
