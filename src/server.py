@@ -26,15 +26,12 @@ main_queue = Tasks()
 recovery_queue = Tasks()
 
 
-# =============================================
-# List of GPU IDs for saving time on evaluation
-# TODO: make this automatic [using module from monitor]
-GPU_IDs = [
-    "GPU-00f900e0-bb6f-792a-1b8a-597214c7e1a1",
-    "GPU-36631a8a-069f-d2e7-5dbc-954ff1c64d8a",
-    "GPU-2542cdb4-b558-5541-6feb-c4b72b612395",
-    "GPU-02bed562-1235-134d-6e37-99f97fd3c1e0"
-]
+gpu_UUIDs = monitor.gpu_uuids()
+
+GPU_IDs = []
+for gpu in gpu_UUIDs:
+    GPU_IDs.append(gpu)
+
 # round-robin generator
 round_robin_generator = cycle(GPU_IDs)
 
