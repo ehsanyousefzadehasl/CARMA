@@ -108,6 +108,26 @@ For reproducibility, we provide a companion repository that analyzes the Philly 
 3. Keeping track of mapped tasks in an efficient data structure to not only rely on monitoring GPUs (It can facilitate decision making process in cases of exclusive assignment, and make recovery method more efficient in terms of checking less error files instead of all of the files in a directory)
 
 ## License & Citation
+
+© 2025 Ehsan Yousefzadeh-Asl-Miandoab. Affiliated with the [RAD](https://itu-dasyalab.github.io/RAD/), [IT University of Copenhagen](https://itu.dk/). All rights reserved.
+
+This repository is released for **non-commercial academic research purposes only**. You may use, modify, and share the code for academic research, but **commercial use is prohibited**.
+
+If you use this repository (code or ideas), you must cite the following:
+
+### GitHub Repository
+Ehsan Yousefzadeh-Asl-Miandoab. CARMA: Collocation-Aware Resource Manager with GPU Memory Estimator. GitHub Repository: https://github.com/ehsanyousefzadehasl/CARMA
+
+```bibtex
+@misc{yousefzadeh2025carma,
+author = {Ehsan Yousefzadeh-Asl-Miandoab},
+title = {CARMA: Collocation-Aware Resource Manager with GPU Memory Estimator},
+year = {2025},
+howpublished = {\url{https://github.com/ehsanyousefzadehasl/CARMA}}
+}
+```
+
+### Academic Paper
 ```bibtex
 @article{yousefzadeh2025carma,
   title={CARMA: Collocation-Aware Resource Manager with GPU Memory Estimator},
